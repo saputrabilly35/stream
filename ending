@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ending / Outro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#08080a;--panel:#131316;
+    --silver-bright:#f1f3f4;--silver:#b9bec3;--silver-dim:#6c7175;
+    --hairline:rgba(185,190,195,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1920px;height:1080px;background:var(--void);overflow:hidden;font-family:'Inter',sans-serif;position:relative;}
+
+  .backdrop{
+    position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(115deg, rgba(255,255,255,.015) 0px, rgba(255,255,255,.015) 1px, transparent 1px, transparent 4px),
+      radial-gradient(circle at 50% 40%, #17181b 0%, #08080a 70%);
+  }
+  .grid-lines{
+    position:absolute;inset:0;
+    background-image:linear-gradient(var(--hairline) 1px, transparent 1px),linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    background-size:96px 96px;opacity:.05;
+  }
+
+  /* ---- main thank-you frame, upper-center ---- */
+  .main-wrap{position:absolute;left:380px;top:110px;width:1160px;}
+  .frame-outer{
+    position:relative;padding:3px;
+    background:linear-gradient(155deg, var(--silver-bright), var(--silver-dim) 40%, var(--silver) 100%);
+    clip-path:polygon(40px 0,100% 0,100% calc(100% - 40px),calc(100% - 40px) 100%,0 100%,0 40px);
+  }
+  .frame-inner{
+    background:var(--panel);
+    clip-path:polygon(38px 0,100% 0,100% calc(100% - 38px),calc(100% - 38px) 100%,0 100%,0 38px);
+    padding:64px 90px;text-align:center;position:relative;
+  }
+  .tick{position:absolute;width:26px;height:26px;border:2px solid var(--silver-bright);opacity:.85;}
+  .tick.tl{top:-14px;left:-14px;border-right:none;border-bottom:none;}
+  .tick.tr{top:-14px;right:-14px;border-left:none;border-bottom:none;}
+  .tick.bl{bottom:-14px;left:-14px;border-right:none;border-top:none;}
+  .tick.br{bottom:-14px;right:-14px;border-left:none;border-top:none;}
+
+  .eyebrow{
+    font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.6em;
+    font-size:22px;color:var(--silver-dim);margin-bottom:22px;
+  }
+  .title{
+    font-family:'Orbitron',sans-serif;font-weight:800;font-size:64px;
+    background:linear-gradient(180deg, var(--silver-bright) 0%, var(--silver) 55%, var(--silver-dim) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.2;
+  }
+  .subline{
+    margin-top:20px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:30px;
+    letter-spacing:.06em;color:var(--silver);text-transform:uppercase;
+  }
+  .hairline-row{margin-top:40px;display:flex;align-items:center;justify-content:center;gap:22px;}
+  .hairline-row .line{height:1px;width:180px;background:linear-gradient(90deg, transparent, var(--hairline), transparent);}
+  .hairline-row .socials{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:600;letter-spacing:.15em;color:var(--silver-dim);}
+
+  /* ---- donation panel, bottom-right ---- */
+  .donate-panel{
+    position:absolute;right:60px;bottom:60px;width:380px;height:460px;
+    padding:3px;
+    background:linear-gradient(155deg, var(--silver-bright), var(--silver-dim) 40%, var(--silver) 100%);
+    clip-path:polygon(26px 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%,0 26px);
+  }
+  .donate-inner{
+    height:100%;background:var(--panel);
+    clip-path:polygon(24px 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%,0 24px);
+    padding:32px 30px;text-align:center;position:relative;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .donate-eyebrow{
+    font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.35em;
+    font-size:19px;color:var(--silver-bright);margin-bottom:22px;text-transform:uppercase;
+  }
+  /* reserved slot: size/position the Saweria QR browser source to match this box exactly */
+  .qr-slot{
+    width:260px;height:260px;
+    border:1px dashed var(--hairline);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Rajdhani',sans-serif;font-size:14px;letter-spacing:.08em;
+    color:var(--silver-dim);text-transform:uppercase;
+  }
+  .donate-link{
+    margin-top:22px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:24px;
+    color:var(--silver-bright);letter-spacing:.03em;
+  }
+  .donate-sub{
+    margin-top:6px;font-family:'Inter',sans-serif;font-size:14px;color:var(--silver-dim);
+  }
+</style>
+</head>
+<body>
+  <div class="backdrop"></div>
+  <div class="grid-lines"></div>
+
+  <div class="main-wrap">
+    <div class="frame-outer">
+      <div class="frame-inner">
+        <div class="tick tl"></div><div class="tick tr"></div>
+        <div class="tick bl"></div><div class="tick br"></div>
+        <div class="eyebrow">STREAM ENDED</div>
+        <div class="title">Thank you for watching!</div>
+        <div class="subline">Make sure to like and subscribe</div>
+        <div class="hairline-row">
+          <div class="line"></div>
+          <div class="socials">YOUTUBE / INSTAGRAM &nbsp;·&nbsp; @billyftw_</div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="donate-panel">
+    <div class="donate-inner">
+      <div class="donate-eyebrow">Support the Stream</div>
+      <div class="qr-slot">Saweria QR widget<br>goes here</div>
+      <div class="donate-link">saweria.co/billyftw</div>
+      <div class="donate-sub">Scan or visit the link to donate</div>
+    </div>
+  </div>
+</body>
+</html>
