@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Widget - Saweria Link + QR Slot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --panel:#131316;
+    --silver-bright:#f1f3f4;--silver:#b9bec3;--silver-dim:#6c7175;
+    --hairline:rgba(185,190,195,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  /* Canvas is sized exactly to this widget's content (380 x 460).
+     Set your Browser Source width/height to match, then drag it anywhere.
+     Add your Saweria QR browser source as its OWN source and size/position
+     it to land inside the dashed "qr-slot" box below (260 x 260), stacked
+     above this source in your Sources list so it shows on top of the slot. */
+  html,body{width:380px;height:460px;background:transparent;overflow:hidden;font-family:'Rajdhani',sans-serif;}
+
+  .donate-panel{position:relative;width:100%;height:100%;}
+  /* true ring border with a real hole -- drawn as one shape using an
+     evenodd path (outer hexagon minus inner hexagon), so nothing is
+     painted in the middle and your game footage / page bg shows through */
+  .ring{
+    position:absolute;inset:0;
+    background:linear-gradient(155deg, var(--silver-bright), var(--silver-dim) 40%, var(--silver) 100%);
+    clip-path:path(evenodd, "M26,0 L380,0 L380,434 L354,460 L0,460 L0,26 Z M26,3 L377,3 L377,434 L354,457 L3,457 L3,26 Z");
+    pointer-events:none;
+  }
+  .donate-inner{
+    position:relative;height:100%;background:transparent;
+    padding:32px 30px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .eyebrow{
+    font-weight:700;letter-spacing:.35em;font-size:19px;
+    color:var(--silver-bright);margin-bottom:22px;text-transform:uppercase;
+  }
+  .qr-slot{
+    width:260px;height:260px;
+    border:1px dashed var(--hairline);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;letter-spacing:.08em;color:var(--silver-dim);text-transform:uppercase;
+  }
+  .link{margin-top:22px;font-weight:700;font-size:24px;color:var(--silver-bright);letter-spacing:.03em;}
+  .sub{margin-top:6px;font-family:'Inter',sans-serif;font-size:14px;color:var(--silver-dim);}
+</style>
+</head>
+<body>
+  <div class="donate-panel">
+    <div class="ring"></div>
+    <div class="donate-inner">
+      <div class="eyebrow">Support the Stream</div>
+      <div class="qr-slot">Saweria QR widget<br>goes here</div>
+      <div class="link">saweria.co/billyftw</div>
+      <div class="sub">Scan or visit the link to donate</div>
+    </div>
+  </div>
+</body>
+</html>
