@@ -19,14 +19,15 @@
   }
 
   /* ============ FACECAM FRAME ============
-     Position: left side, 30% down from the top (0.30 x 1080 = 324px),
-     inset 100px from the left edge so it isn't flush in the corner.
+     Position: left side, 20% down from the top (0.20 x 1080 = 216px) --
+     just below where most games place their health bar/HUD in the top-left.
+     Inset 100px from the left edge so it isn't flush in the corner.
      Size: 360 x 203 (16:9). Align your Video Capture Device source to
      the SAME x/y/width/height in OBS so the webcam sits inside the frame.
-     Absolute canvas position: left = 100px, top = 324px.
+     Absolute canvas position: left = 100px, top = 216px.
   */
   .facecam-block{
-    position:absolute;left:100px;top:324px;width:360px;
+    position:absolute;left:100px;top:216px;width:360px;
   }
   .facecam-frame{
     position:relative;width:360px;height:203px;
