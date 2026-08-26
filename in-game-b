@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live / Gameplay Overlay - Variation 2 (Facecam Left, 30% from top)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#08080a;--panel:#131316;
+    --silver-bright:#f1f3f4;--silver:#b9bec3;--silver-dim:#6c7175;
+    --hairline:rgba(185,190,195,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{
+    width:1920px;height:1080px;
+    background:transparent;
+    overflow:hidden;font-family:'Inter',sans-serif;position:relative;
+  }
+
+  /* ============ FACECAM FRAME ============
+     Position: left side, 30% down from the top (0.30 x 1080 = 324px),
+     inset 100px from the left edge so it isn't flush in the corner.
+     Size: 360 x 203 (16:9). Align your Video Capture Device source to
+     the SAME x/y/width/height in OBS so the webcam sits inside the frame.
+     Absolute canvas position: left = 100px, top = 324px.
+  */
+  .facecam-block{
+    position:absolute;left:100px;top:324px;width:360px;
+  }
+  .facecam-frame{
+    position:relative;width:360px;height:203px;
+    background:transparent; /* true hole -- nothing painted behind it */
+    border:4px solid var(--silver);
+    border-image:linear-gradient(155deg, var(--silver-bright), var(--silver-dim) 40%, var(--silver) 100%) 1;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.5);
+  }
+  .tick{position:absolute;width:20px;height:20px;border:2px solid var(--silver-bright);opacity:.9;}
+  .tick.tl{top:-12px;left:-12px;border-right:none;border-bottom:none;}
+  .tick.tr{top:-12px;right:-12px;border-left:none;border-bottom:none;}
+  .tick.bl{bottom:-12px;left:-12px;border-right:none;border-top:none;}
+  .tick.br{bottom:-12px;right:-12px;border-left:none;border-top:none;}
+
+  /* label: YouTube + Instagram handles, directly under the facecam */
+  .facecam-label{
+    margin-top:10px;
+    background:var(--panel);
+    border:1px solid var(--hairline);
+    clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+    padding:12px 18px;
+    display:flex;align-items:center;justify-content:center;gap:18px;
+  }
+  .platform-tag{display:flex;align-items:center;gap:9px;}
+  .platform-tag svg{width:18px;height:18px;flex:none;}
+  .platform-tag .handle{
+    font-family:'Rajdhani',sans-serif;font-weight:700;font-size:17px;
+    color:var(--silver-bright);letter-spacing:.02em;
+  }
+  .tag-divider{width:1px;height:20px;background:var(--hairline);}
+
+  /* ============ SAWERIA LINK, bottom-right corner (no QR) ============ */
+  .donate-mini{
+    position:absolute;right:60px;bottom:60px;
+    padding:3px;
+    background:linear-gradient(155deg, var(--silver-bright), var(--silver-dim) 40%, var(--silver) 100%);
+    clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
+  }
+  .donate-mini-inner{
+    background:rgba(19,19,22,.88);
+    clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+    padding:14px 26px;display:flex;align-items:center;gap:16px;
+  }
+  .donate-eyebrow{
+    font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.2em;
+    color:var(--silver-dim);text-transform:uppercase;
+  }
+  .donate-link{
+    font-family:'Rajdhani',sans-serif;font-weight:700;font-size:20px;
+    color:var(--silver-bright);
+  }
+</style>
+</head>
+<body>
+
+  <div class="facecam-block">
+    <div class="facecam-frame">
+      <div class="tick tl"></div><div class="tick tr"></div>
+      <div class="tick bl"></div><div class="tick br"></div>
+    </div>
+    <div class="facecam-label">
+      <div class="platform-tag">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="1.5" y="5" width="21" height="14" rx="4" stroke="#f1f3f4" stroke-width="1.6"/><path d="M10 9.2v5.6l5-2.8-5-2.8z" fill="#f1f3f4"/></svg>
+        <span class="handle">billyftw_</span>
+      </div>
+      <div class="tag-divider"></div>
+      <div class="platform-tag">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#f1f3f4" stroke-width="1.6"/><circle cx="12" cy="12" r="4.3" stroke="#f1f3f4" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.15" fill="#f1f3f4"/></svg>
+        <span class="handle">billyftw_</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="donate-mini">
+    <div class="donate-mini-inner">
+      <div class="donate-eyebrow">Support</div>
+      <div class="donate-link">saweria.co/billyftw</div>
+    </div>
+  </div>
+
+</body>
+</html>
