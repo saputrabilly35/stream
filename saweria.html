@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Widget - Saweria Link Only</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --panel:#131316;
+    --silver-bright:#f1f3f4;--silver:#b9bec3;--silver-dim:#6c7175;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  /* Canvas is sized exactly to this widget's content (320 x 100).
+     Set your Browser Source width/height to match, then drag it anywhere. */
+  html,body{
+    width:320px;height:100px;background:transparent;overflow:hidden;
+    font-family:'Rajdhani',sans-serif;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  .donate-card{
+    padding:3px;
+    background:linear-gradient(155deg, var(--silver-bright), var(--silver-dim) 40%, var(--silver) 100%);
+    clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
+  }
+  .donate-card-inner{
+    background:rgba(19,19,22,.9);
+    clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+    padding:16px 28px;text-align:center;
+  }
+  .eyebrow{
+    font-weight:700;font-size:13px;letter-spacing:.25em;
+    color:var(--silver-dim);text-transform:uppercase;margin-bottom:8px;
+  }
+  .link{font-weight:700;font-size:22px;color:var(--silver-bright);letter-spacing:.02em;}
+</style>
+</head>
+<body>
+  <div class="donate-card">
+    <div class="donate-card-inner">
+      <div class="eyebrow">Support the Stream</div>
+      <div class="link">saweria.co/billyftw</div>
+    </div>
+  </div>
+</body>
+</html>
