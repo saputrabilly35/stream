@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Widget - Facecam + Socials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --panel:#131316;
+    --silver-bright:#f1f3f4;--silver:#b9bec3;--silver-dim:#6c7175;
+    --hairline:rgba(185,190,195,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  /* Canvas is sized exactly to this widget's content (360 x 258).
+     Set your Browser Source width/height to match, then drag it
+     anywhere in your scene -- the facecam frame and socials move together. */
+  html,body{width:360px;height:258px;background:transparent;overflow:hidden;font-family:'Rajdhani',sans-serif;}
+
+  .facecam-frame{
+    position:relative;width:360px;height:203px;
+    background:transparent; /* true hole -- your webcam source shows through here */
+    border:4px solid var(--silver);
+    border-image:linear-gradient(155deg, var(--silver-bright), var(--silver-dim) 40%, var(--silver) 100%) 1;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.5);
+  }
+  .tick{position:absolute;width:20px;height:20px;border:2px solid var(--silver-bright);opacity:.9;}
+  .tick.tl{top:-12px;left:-12px;border-right:none;border-bottom:none;}
+  .tick.tr{top:-12px;right:-12px;border-left:none;border-bottom:none;}
+  .tick.bl{bottom:-12px;left:-12px;border-right:none;border-top:none;}
+  .tick.br{bottom:-12px;right:-12px;border-left:none;border-top:none;}
+
+  .facecam-label{
+    margin-top:10px;
+    background:var(--panel);
+    border:1px solid var(--hairline);
+    clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+    padding:12px 18px;
+    display:flex;align-items:center;justify-content:center;gap:18px;
+  }
+  .platform-tag{display:flex;align-items:center;gap:9px;}
+  .platform-tag svg{width:18px;height:18px;flex:none;}
+  .platform-tag .handle{font-weight:700;font-size:17px;color:var(--silver-bright);letter-spacing:.02em;}
+  .tag-divider{width:1px;height:20px;background:var(--hairline);}
+</style>
+</head>
+<body>
+  <div class="facecam-frame">
+    <div class="tick tl"></div><div class="tick tr"></div>
+    <div class="tick bl"></div><div class="tick br"></div>
+  </div>
+  <div class="facecam-label">
+    <div class="platform-tag">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="1.5" y="5" width="21" height="14" rx="4" stroke="#f1f3f4" stroke-width="1.6"/><path d="M10 9.2v5.6l5-2.8-5-2.8z" fill="#f1f3f4"/></svg>
+      <span class="handle">billyftw_</span>
+    </div>
+    <div class="tag-divider"></div>
+    <div class="platform-tag">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#f1f3f4" stroke-width="1.6"/><circle cx="12" cy="12" r="4.3" stroke="#f1f3f4" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.15" fill="#f1f3f4"/></svg>
+      <span class="handle">billyftw_</span>
+    </div>
+  </div>
+</body>
+</html>
